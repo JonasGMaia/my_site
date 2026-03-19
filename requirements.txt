@@ -1,0 +1,8 @@
+# Requirements for Django Blog Project
+# Install with: pip install -r requirements.txt
+
+Django==6.0.3
+factory_boy==3.3.3
+Faker==40.11.0
+pytest==9.0.2
+pytest-django==4.12.0
