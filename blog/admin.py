@@ -8,4 +8,4 @@ class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
 # Register your models here.
-admin.site.register(Post, PostAdmin)
+from .models import Post
