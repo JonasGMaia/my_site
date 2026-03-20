@@ -1,20 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
 <h1>Blog Posts</h1>
 <p>Welcome to the blog!</p>
-<style>
-    body {
-        font-family: "Roboto", sans-serif;
-        font-size: 18px;
-        background-color: #fdfdfd;
-    }
-    
-    .head_text {
-        color: white;
-    }
-    
-    .card {
-        box-shadow: 0 16px 48px #E3E7EB;
-    }
-</style>
 
 <header class="masthead">
     <div class="overlay"></div>
@@ -48,3 +36,4 @@
         {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
     </div>
 </div>
+{%endblock%}
