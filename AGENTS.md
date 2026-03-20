@@ -8,7 +8,7 @@ This is a Django 6.0.3 personal blog application using Python 3.12+ and SQLite.
 
 | Service | Command | Notes |
 |---------|---------|-------|
-| Django dev server | `python3 manage.py runserver 0.0.0.0:8000` | Main app; serves "Hello, World!" at `/` and admin at `/admin/` |
+| Django dev server | `python3 manage.py runserver 0.0.0.0:8000` | Main app; serves the blog list at `/`, post detail at `/post/<slug>/`, and admin at `/admin/` |
 
 ### Quick reference
 
@@ -19,7 +19,6 @@ This is a Django 6.0.3 personal blog application using Python 3.12+ and SQLite.
 
 ### Known caveats
 
-- The `Post` model in `blog/models/post.py` has `abstract = True`, which prevents ORM instantiation. The migration (`0001_initial`) created a concrete table, so the schema exists but `PostFactory` and the model test (`tests/models/test_post.py`) fail at runtime. This is a pre-existing issue.
 - The `blog/admin.py` imports `PostAdmin` but never calls `admin.site.register(Post, PostAdmin)`, so the Post model does not appear in Django admin.
-- There are two Django project configs: `config/` (active, used by root `manage.py` and `pytest.ini`) and `my_site/` (unused legacy scaffold). Always use `config.settings`.
+- The runtime entrypoint remains `config.settings`, but it is now a compatibility shim that imports canonical settings from `my_site.settings`; use root `manage.py` commands and avoid mixing nested `my_site/manage.py` commands.
 - `pip install` goes to `~/.local/`; ensure `~/.local/bin` is on `PATH` for `pytest`, `django-admin`, etc.
