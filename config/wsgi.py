@@ -1,16 +1,15 @@
-"""
-WSGI config for config project.
+"""Compatibility shim for legacy `config.wsgi` imports."""
 
-It exposes the WSGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/6.0/howto/deployment/wsgi/
-"""
-
+from pathlib import Path
 import os
+import sys
 
-from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
+MY_SITE_ROOT = Path(__file__).resolve().parent.parent / "my_site"
 
-application = get_wsgi_application()
+if str(MY_SITE_ROOT) not in sys.path:
+    sys.path.insert(0, str(MY_SITE_ROOT))
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "my_site.settings")
+
+from my_site.wsgi import application
