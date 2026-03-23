@@ -19,6 +19,5 @@ This is a Django 5.0.12 personal blog application using Python 3.12+ and SQLite.
 
 ### Known caveats
 
-- The `blog/admin.py` imports `PostAdmin` but never calls `admin.site.register(Post, PostAdmin)`, so the Post model does not appear in Django admin.
 - The runtime entrypoint remains `config.settings`, but it is now a compatibility shim that imports canonical settings from `my_site.settings`; use root `manage.py` commands and avoid mixing nested `my_site/manage.py` commands.
 - `pip install` goes to `~/.local/`; ensure `~/.local/bin` is on `PATH` for `pytest`, `django-admin`, etc.
