@@ -2,7 +2,7 @@
 
 ## Cursor Cloud specific instructions
 
-This is a Django 6.0.3 personal blog application using Python 3.12+ and SQLite.
+This is a Django 5.0.12 personal blog application using Python 3.12+ and SQLite.
 
 ### Services
 
